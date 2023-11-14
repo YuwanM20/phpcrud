@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect with Continuous Rotation and Zoom</title>
+    <style>
+            .image-container{
+                padding: 50px;
+            }
+        .image-container img {
+            
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover img {
+            animation: rotate-zoom 3s linear infinite, scale-up 0.3s ease-in-out;
+        }
+
+        .image-container:not(:hover) img {
+            animation: rotate-reverse 1s linear, scale-down 0.3s ease-in-out;
+        }
+
+        @keyframes rotate-zoom {
+
+            100% {
+                transform: rotate(360deg) scale(9);
+            }
+        }
+
+        @keyframes scale-up {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(9);
+            }
+        }
+
+        @keyframes rotate-reverse {
+            0% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes scale-down {
+            0% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="elna.jpg" alt="Gambar Anda">
+    </div>
+</body>
+</html>
